@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bany Amas's Class</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f4f8;
+            text-align: center;
+            padding: 20px;
+        }
+        header {
+            background: #4CAF50;
+            color: white;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        .instrument {
+            margin: 20px;
+            display: inline-block;
+            padding: 10px;
+            border: 2px solid #4CAF50;
+            border-radius: 8px;
+            background: white;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .instrument:hover {
+            background: #e8f5e9;
+        }
+        footer {
+            margin-top: 40px;
+            padding: 10px;
+            background: #4CAF50;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Bany Amas's Class</h1>
+    <p>Click on an instrument to play!</p>
+</header>
+
+<div>
+    <div class="instrument" data-sound="sounds/Dwi Satya.mp3">🎹 Dwi Satya</div>
+    <div class="instrument" data-sound="sounds/SIB-Ku.mp3">🎸 SIB-Ku</div>
+    <div class="instrument" data-sound="sounds/Hymne SIB.mp3">🥁 Hymne SIB</div>
+</div>
+
+<div>
+    <div class="instrument" data-sound="sounds/Komposisi Nafila.mp3">🎹 Komposisi Nafila</div>
+    <div class="instrument" data-sound="sounds/Komposisi Mahdy.mp3">🎸 Komposisi Mahdy</div>
+    <div class="instrument" data-sound="sounds/Komposisi Hasbi.mp3">🥁 Komposisi Hasbi</div>
+    <div class="instrument" data-sound="sounds/Komposisi Alif.mp3">🎹 Komposisi Alif</div>
+    <div class="instrument" data-sound="sounds/Komposisi Bita.mp3">🎸 Komposisi Bita</div>
+    
+</div>
+
+<div>
+    <div class="instrument" data-sound="sounds/Komposisi Hana.mp3">🎹 Komposisi Hana</div>
+    <div class="instrument" data-sound="sounds/Komposisi Aby X.mp3">🎸 Komposisi Aby X</div>
+    <div class="instrument" data-sound="sounds/Komposisi Nafis.mp3">🥁 Komposisi Nafis</div>
+    <div class="instrument" data-sound="sounds/Komposisi Bening.mp3">🎹 Komposisi Bening</div>
+    <div class="instrument" data-sound="sounds/Komposisi Fatwa.mp3">🎸 Komposisi Fatwa</div>
+    <div class="instrument" data-sound="sounds/Komposisi Fatwa 2.mp3">🎸 Komposisi Fatwa 2</div>
+</div>
+
+<footer>
+    <p>&copy; 2024 Bany Amas. All rights reserved.</p>
+</footer>
+
+<script>
+    const instruments = document.querySelectorAll('.instrument');
+    const currentAudio = {};
+
+    instruments.forEach(instrument => {
+        instrument.addEventListener('click', () => {
+            const sound = instrument.dataset.sound;
+
+            // If sound is already playing, stop it
+            if (currentAudio[sound]) {
+                currentAudio[sound].pause();
+                currentAudio[sound].currentTime = 0; // Reset to start
+                delete currentAudio[sound];
+            } else {
+                // Play the sound
+                const audio = new Audio(sound);
+                audio.play();
+                currentAudio[sound] = audio; // Store the audio reference
+
+                // Remove from currentAudio when finished playing
+                audio.onended = () => {
+                    delete currentAudio[sound];
+                };
+            }
+        });
+    });
+</script>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thubany Amas - Portfolio</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: lightblue;
+        }
+        header {
+            background: navy;
+            color: lightblue;
+            padding: 20px;
+            text-align: center;
+        }
+        nav {
+            margin: 20px 0;
+        }
+        nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #4CAF50;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        section {
+            margin-bottom: 40px;
+        }
+        h2 {
+            border-bottom: 2px solid #4CAF50;
+            padding-bottom: 10px;
+        }
+        .project {
+            background: white;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        footer {
+            text-align: center;
+            padding: 10px;
+            background: navy;
+            color: white;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+    <style>
+        a {
+            color: #4CAF50; /* Change link color */
+            text-decoration: none; /* Remove underline */
+        }
+
+        a:hover {
+            text-decoration: underline; /* Underline on hover */
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>Thubany Amas</h1>
+    <nav>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+    </nav>
+</header>
+
+<div class="container">
+    <section id="about">
+        <h2>About Me</h2>
+        <p>Hello! I’m a music and art teacher at the Indonesian School of Bangkok, Thailand. With a deep love for creativity and education, I strive to inspire my students to explore their artistic abilities and express themselves through music and visual arts.</p>
+
+<p>I believe that art and music are powerful tools for personal growth and cultural appreciation. My teaching philosophy revolves around creating a supportive and inclusive environment where every student feels empowered to discover their unique voice. Whether through hands-on art projects or engaging music lessons, I aim to nurture creativity and encourage self-expression in every classroom.</p>
+
+<p>Outside of teaching, I enjoy exploring various art forms, attending cultural events, and collaborating with fellow educators to enhance the learning experience for my students. I’m dedicated to continuous learning and seek to bring innovative ideas and techniques into my teaching.</p>
+
+<p>Thank you for visiting my portfolio, and I look forward to sharing my journey in the world of music and art with you!.</p>
+    </section>
+
+    <section id="projects">
+        <h2>Projects</h2>
+        <div class="project">
+            <h3>Music</h3>
+            <p>🎸Guitar, Piano, Violin, Bass, Recorder, & Drum Lessons: I provide personalized instruction for students of all ages, focusing on technique, music theory, and performance skills. Whether beginners or advanced players, my goal is to nurture their passion for music.</p>
+		<p> 🎸Angklung, Gamelan, Cethik, & Kolintang Lessons : I introduce students to traditional Indonesian instruments, teaching them not only how to play but also the cultural significance behind these beautiful instruments. Through ensemble performances, students learn teamwork and collaboration.</p>
+
+		<p>🎸Band Coaching: I guide students in forming bands, emphasizing teamwork, creativity, and live performance skills. This project allows them to explore different genres and develop their musical identities.</p>
+
+		<p>🎸Choir : I focus on vocal techniques and teamwork, creating a collaborative environment where students express themselves. Organizing diverse performances showcases their growth and fosters cultural appreciation. Teaching choir is not just my job; it’s my passion, inspiring students to reach their full potential.</p>
+
+		<p>🎸Exploration of Other Instruments: I encourage students to explore various instruments, including drums and wind instruments, to discover their musical preferences and expand their skills.</p>
+
+        </div>
+        <div class="project">
+            <h3>Art</h3>
+            <p>🎨Painting Class : I conduct workshops that focus on different painting styles and techniques, helping students unleash their creativity and express their thoughts and emotions through art.
+
+	<p> 🎨Drawing Class : In my drawing class, students explore various techniques and mediums to express their creativity. I focus on building fundamental skills such as observation, composition, and shading, encouraging individual artistic voices. Through engaging exercises and constructive feedback, students gain confidence and develop their unique styles. Whether beginners or more experienced artists, each participant is supported in their journey to create expressive and impactful artwork.</p>
+
+	<p>🎨Mixed Media Projects : I encourage experimentation with various materials and methods, allowing students to create unique pieces that reflect their individual artistic visions.</p>
+
+Through these projects, I aim to inspire a love for both music and art, fostering creativity and self-expression in my students. My goal is to create a supportive environment where they can grow, collaborate, and explore their artistic abilities.</p>
+.</p>
+        </div>
+        <div class="project">
+            <h3>Galery</h3>
+           <p> <a href="https://thubanyamas72.wixsite.com/website/portfolio-collections/my-portfolio/angklung-workshop" target="_blank">Bany Amas WIX Portofolio</a></p>
+	<p><a href="https://www.linkedin.com/in/thubany-amas-866058228/" target="_blank">Bany Amas LinkedIn</a></p>
+
+	<p><a href="https://www.youtube.com/@madingsib5363/videos" target="_blank">Bany Amas Youtube (Mading SIB)</a></p>
+
+
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Contact</h2>
+        <p>You can reach me at: <a href="https://www.instagram.com/banyamas/">Instagram @banyamas</a></p>
+       </div>
+
+<footer>
+    <p>&copy; 2024 Your Name. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
+
